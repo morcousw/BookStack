@@ -170,7 +170,7 @@ class SearchRunner
         $entityQuery = $entityModelInstance->newQuery();
 
         if ($entityModelInstance instanceof Page) {
-            $entityQuery->select($entityModelInstance::$listAttributes);
+            $entityQuery->select($entityModelInstance::$listAttributes)->where('unlisted', '=', 'false');
         } else {
             $entityQuery->select(['*']);
         }

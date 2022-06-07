@@ -586,7 +586,7 @@ class PermissionService
                 });
         });
     }
-
+    
     /**
      * Add restrictions for a generic entity.
      */
@@ -629,7 +629,9 @@ class PermissionService
                     $query->select('id')->from('pages')
                         ->whereColumn('pages.id', '=', $tableDetails['tableName'] . '.' . $tableDetails['entityIdColumn'])
                         ->where($tableDetails['tableName'] . '.' . $tableDetails['entityTypeColumn'], '=', $pageMorphClass)
-                        ->where('pages.draft', '=', false);
+                        ->where('pages.draft', '=', false)
+                        ->where('pages.unlisted', '=', false)
+                        ;
                 });
         });
 

@@ -44,6 +44,8 @@ return [
     'permissions_enable' => 'Enable Custom Permissions',
     'permissions_save' => 'Save Permissions',
     'permissions_owner' => 'Owner',
+    'unlisted_intro' => 'Unlisted pages do not show up in search, "Recently Updated" blocks, or "Popular Pages" blocks. They are accessible via link.',
+    'unlisted_enable' => 'Unlisted Page',
 
     // Search
     'search_results' => 'Search Results',

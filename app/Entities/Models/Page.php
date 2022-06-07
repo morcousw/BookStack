@@ -27,6 +27,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
  * @property Collection   $attachments
  * @property Collection   $revisions
  * @property PageRevision $currentRevision
+ * @property Unlisted     $unlisted
  */
 class Page extends BookChild
 {
@@ -39,11 +40,12 @@ class Page extends BookChild
 
     public $textField = 'text';
 
-    protected $hidden = ['html', 'markdown', 'text', 'restricted', 'pivot', 'deleted_at'];
+    protected $hidden = ['html', 'markdown', 'text', 'restricted', 'pivot', 'deleted_at', 'unlisted'];
 
     protected $casts = [
         'draft'    => 'boolean',
         'template' => 'boolean',
+        'unlisted' => 'boolean'
     ];
 
     /**

@@ -38,6 +38,7 @@ class HomeController extends Controller
         $favourites = (new TopFavourites())->run(6);
         $recentlyUpdatedPages = Page::visible()->with('book')
             ->where('draft', false)
+            ->where('unlisted', false)
             ->orderBy('updated_at', 'desc')
             ->take($favourites->count() > 0 ? 5 : 10)
             ->select(Page::$listAttributes)

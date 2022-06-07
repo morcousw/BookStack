@@ -49,9 +49,24 @@
             </tr>
         @endforeach
     </table>
+ 
+    @if ($model->isA('page'))
+    <div class="grid half left-focus v-center">
+        <div>
+            <p class="mb-none mt-m">{{ trans('entities.unlisted_intro') }}</p>
+            <div>
+                @include('form.checkbox', [
+                    'name' => 'unlisted',
+                    'label' => trans('entities.unlisted_enable'),
+                ])
+            </div>
+        </div>
+    </div>
+    @endif
 
     <div class="text-right">
         <a href="{{ $model->getUrl() }}" class="button outline">{{ trans('common.cancel') }}</a>
         <button type="submit" class="button">{{ trans('entities.permissions_save') }}</button>
     </div>
+    
 </form>

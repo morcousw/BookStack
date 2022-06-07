@@ -23,6 +23,12 @@ class PermissionsUpdater
         $entity->restricted = $restricted;
         $entity->permissions()->delete();
 
+        if ($entity->isA('page'))
+        {
+          $unlisted = $request->get('unlisted') === 'true';
+          $entity->unlisted = $unlisted;
+        }
+
         if (!is_null($permissions)) {
             $entityPermissionData = $this->formatPermissionsFromRequestToEntityPermissions($permissions);
             $entity->permissions()->createMany($entityPermissionData);
